@@ -1,10 +1,11 @@
 ### Hi there 👋
+![](http://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=naruwo-github&theme=vue)
+![](http://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=naruwo-github&theme=vue)
+![](http://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=naruwo-github&theme=vue)
+![](http://github-profile-summary-cards.vercel.app/api/cards/stats?username=naruwo-github&theme=vue)
+![](http://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=naruwo-github&theme=vue&utcOffset=8)
 
 <!--
-**naruwo-github/naruwo-github** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-
-Here are some ideas to get you started:
-
 - 🔭 I’m currently working on ...
 - 🌱 I’m currently learning ...
 - 👯 I’m looking to collaborate on ...
