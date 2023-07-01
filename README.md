@@ -1,5 +1,7 @@
 ## Hi there👋 Please visit [my homepage](https://naruwo-github.github.io/)🚀
 
+[![roadmap.sh](https://api.roadmap.sh/v1-badge/tall/643e7a80e272577374912709?variant=dark&roadmaps=frontend%2Cbackend%2Cdevops%2Creact)](https://roadmap.sh)
+
 <!--
 ![](http://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=naruwo-github&theme=vue)
 ![](http://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=naruwo-github&theme=vue)
