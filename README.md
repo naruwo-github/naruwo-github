@@ -1,4 +1,4 @@
-## Hi there👋 Please visit [my homepage](https://naruwo-github.github.io/)🚀
+## Hi there👋 Please visit [my homepage](https://naruwo-github.github.io/)(temporarily inactive)🚀
 
 <!--
 <img alt="Top Langs" height="150px" src="https://github-readme-stats.vercel.app/api/top-langs/?username=naruwo-github&layout=compact&count_private=true&show_icons=true&theme=tokyonight" />
