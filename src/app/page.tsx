@@ -1,4 +1,4 @@
-import { AUTHOR, MAIL } from "../constants/identity"
+import { AUTHOR, MAIL, URL_LINKEDIN, URL_WANTEDLY } from "../constants/identity"
 import { GithubIcon, LinkedinIcon, TwitterIcon } from "@/components/SNSIcons"
 
 export default function Home() {
@@ -18,8 +18,8 @@ export default function Home() {
               <br />
               Please see these links for more information.
             </p>
-            <a href="https://www.facebook.com/yourprofile" target="_blank" rel="noopener noreferrer" className="text-blue-700 hover:text-blue-900">LinkedIn</a>
-            , <a href="https://www.linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800">Wantedly</a>
+            <a href={URL_LINKEDIN} target="_blank" rel="noopener noreferrer" className="text-blue-700 hover:text-blue-900">LinkedIn</a>
+            , <a href={URL_WANTEDLY} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800">Wantedly</a>
           </div>
         </div>
       </section>
