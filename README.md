@@ -1,6 +1,8 @@
-## Hi there👋
+## Hi there, I'm Narumi👋
 
-### Please visit [my homepage]()(temporarily inactive)🚀
+![](./public/ogp.png)
+
+## Please visit [my homepage]()(temporarily inactive)🚀
 
 <!--
 <img alt="Top Langs" height="150px" src="https://github-readme-stats.vercel.app/api/top-langs/?username=naruwo-github&layout=compact&count_private=true&show_icons=true&theme=tokyonight" />
