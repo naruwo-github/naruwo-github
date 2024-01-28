@@ -1,5 +1,7 @@
 ## Hi there, I'm Narumi👋
 
+![](https://skillicons.dev/icons?i=aws,gcp,linux,docker,kubernetes,terraform,jenkins,html,css,js,ts,nodejs,nextjs,react,py,flutter,kotlin,swift)
+
 ## Please visit [my homepage](https://portfolio-9jygza4k1-naruwo-github.vercel.app/)🚀
 
 <!--
