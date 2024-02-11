@@ -1,42 +1,47 @@
 import React from "react"
-import { MAIL, URL_LINKEDIN, URL_WANTEDLY } from "../constants/identity"
+import { URL_LINKEDIN, URL_WANTEDLY, MAIL } from "../constants/identity"
 import { Author } from "@/components/Author"
 import { Contact } from "@/components/Contact"
 import { WorkExperience } from "@/components/WorkExperience"
 
 type SectionElement = {
-  id: string;
-  content: React.JSX.Element;
+  title: string
+  content: React.ReactNode
 }
 
 const SectionElements: SectionElement[] = [
   {
-    id: "Author",
-    content: Author(URL_LINKEDIN, URL_WANTEDLY)
+    title: "Author",
+    content: <Author urlLinkedin={URL_LINKEDIN} urlWantedly={URL_WANTEDLY} />,
   },
   {
-    id: "Work Experience",
-    content: WorkExperience()
+    title: "Work Experience",
+    content: <WorkExperience />,
   },
   {
-    id: "Contact",
-    content: Contact(MAIL)
+    title: "Contact",
+    content: <Contact email={MAIL} />,
   },
 ]
 
 export default function Home() {
   return (
     <React.Fragment>
-      {SectionElements.map((element, _index) => (
-        <section key={element.id} className="py-5 md:py-10 lg:py-15">
-          <div className="container px-4 md:px-6">
-            <div className="space-y-3 text-center">
-              <h2 className="text-2xl font-bold tracking-tighter sm:text-3xl md:text-4xl">{element.id}</h2>
-              {element.content}
+      {SectionElements.map((element, _index) => {
+        const title = element.title
+        const content = element.content
+
+        return (
+          <section key={title} className="py-5 md:py-10 lg:py-15">
+            <div className="container px-4 md:px-6">
+              <div className="space-y-3 text-center">
+                <h2 className="text-2xl font-bold tracking-tighter sm:text-3xl md:text-4xl">{title}</h2>
+                {content}
+              </div>
             </div>
-          </div>
-        </section>
-      ))}
+          </section>
+        )
+      })}
     </React.Fragment>
   )
 }

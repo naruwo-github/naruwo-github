@@ -1,6 +1,11 @@
 import React from 'react'
 
-export const Author = (urlLinkedin: string, urlWantedly: string) => {
+type AuthorProps = {
+    urlLinkedin: string;
+    urlWantedly: string;
+}
+
+export const Author: React.FC<AuthorProps> = ({ urlLinkedin, urlWantedly }) => {
     return (
         <React.Fragment>
             <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
