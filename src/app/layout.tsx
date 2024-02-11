@@ -1,10 +1,10 @@
+import { GoogleAnalytics } from '@next/third-parties/google'
 import type { Metadata } from 'next'
 import './globals.css'
 import { Inter as FontSans } from "next/font/google"
 import Link from 'next/link'
 import { AUTHOR, AUTHOR_INITIAL, DISPLAY_NAME, URL_ROOT } from '../constants/identity'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
-import { AnalyticsSettings } from '@/lib/AnalyticsSettings'
 import { cn } from '@/lib/utils'
 
 const fontSans = FontSans({
@@ -37,9 +37,11 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  const env = process.env.NODE_ENV
+  const gaId = process.env.GOOGLE_ANALYTICS_MEASUREMENT_ID
+
   return (
     <html lang="en">
-      <AnalyticsSettings />
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
@@ -66,6 +68,7 @@ export default function RootLayout({
           </footer>
         </div>
       </body>
+      {env === 'production' && gaId && <GoogleAnalytics gaId={gaId} />}
     </html>
   )
 }
