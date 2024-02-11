@@ -2,8 +2,10 @@ import type { Metadata } from 'next'
 import './globals.css'
 import { Inter as FontSans } from "next/font/google"
 import Link from 'next/link'
+import Script from 'next/script'
 import { AUTHOR, AUTHOR_INITIAL, DISPLAY_NAME, URL_ROOT } from '../constants/identity'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+import { AnalyticsSettings } from '@/lib/AnalyticsSettings'
 import { cn } from '@/lib/utils'
 
 const fontSans = FontSans({
@@ -38,6 +40,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <AnalyticsSettings />
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
