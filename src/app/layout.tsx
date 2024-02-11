@@ -54,7 +54,9 @@ export default function RootLayout({
               <span className="text-lg font-semibold">{AUTHOR}</span>
             </Link>
           </header>
-          {children}
+          <main className="flex-1 px-4 md:px-6 shadow-md">
+            {children}
+          </main>
           <footer className="flex flex-col lg:px-6 gap-2 sm:flex-row py-6">
             <p className="text-center text-xs text-gray-500 dark:text-gray-400">
               © 2024 {AUTHOR}. All rights reserved.
