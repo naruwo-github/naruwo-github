@@ -12,7 +12,6 @@ const URL_LINKEDIN = `${PREFIX}www.linkedin.com/in/narumi-nogawa-a94413198/`
 const URL_QIITA = `${PREFIX}qiita.com/chan_naruwo`
 const URL_ROOT = `${PREFIX}naruwo-github.github.io`
 const URL_TWITTER = `${PREFIX}twitter.com/chan_naru_way`
-const URL_WANTEDLY = `${PREFIX}www.wantedly.com/id/narunaru_chan`
 export {
   URL_GITHUB,
   URL_HATENA,
@@ -20,6 +19,5 @@ export {
   URL_LINKEDIN,
   URL_QIITA,
   URL_ROOT,
-  URL_TWITTER,
-  URL_WANTEDLY
+  URL_TWITTER
 }

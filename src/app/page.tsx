@@ -1,5 +1,5 @@
 import React from "react"
-import { URL_LINKEDIN, URL_WANTEDLY, MAIL } from "../constants/identity"
+import { MAIL } from "../constants/identity"
 import { Author } from "@/components/Author"
 import { Contact } from "@/components/Contact"
 import { WorkExperience } from "@/components/WorkExperience"
@@ -12,7 +12,7 @@ type SectionElement = {
 const SectionElements: SectionElement[] = [
   {
     title: "Author",
-    content: <Author urlLinkedin={URL_LINKEDIN} urlWantedly={URL_WANTEDLY} />,
+    content: <Author />,
   },
   {
     title: "Work Experience",
