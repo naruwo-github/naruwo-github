@@ -50,7 +50,7 @@ export default function RootLayout({
       >
         <div className="flex flex-col min-h-screen bg-gray-100 dark:bg-gray-900">
           <header className="px-4 lg:px-6 h-16 flex items-center shadow-md">
-            <Link className="flex items-center gap-2" href="#">
+            <Link className="flex items-center gap-2" href="/">
               <Avatar className="h-8 w-8">
                 <AvatarImage alt="@shadcn" src="/ogp.png" />
                 <AvatarFallback>{AUTHOR_INITIAL}</AvatarFallback>
