@@ -1,25 +1,20 @@
 import React from 'react'
+import { getAuthorData } from '@/lib/cmsClient';
 
-type AuthorProps = {
-    urlLinkedin: string;
-    urlWantedly: string;
-}
+export const Author: React.FC = async () => {
+    const contents = await getAuthorData()
 
-export const Author: React.FC<AuthorProps> = ({ urlLinkedin, urlWantedly }) => {
     return (
         <React.Fragment>
-            <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
-                Web(Full-stack) Developer, Tennis and Snowboard Lover. 🧑‍💻🎾🏂
-            </p>
-            <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
-                I have experience in a
-                variety of technologies and I&apos;m always looking for new challenges to improve User Interface and Developer Experience.
-                <br />
-                <br />
-                Please see these links for more information.
-            </p>
-            <a href={urlLinkedin} target="_blank" rel="noopener noreferrer" className="text-blue-700 hover:text-blue-900">LinkedIn</a>
-            , <a href={urlWantedly} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800">Wantedly</a>
+            {contents && contents.results.map((block) => {
+                // @ts-ignore
+                const text = block[block.type]['rich_text'][0].text
+                const content = text.content
+                const link = text.link
+                return link ?
+                    <a key={block.id} href={link.url} target="_blank" rel="noopener noreferrer" className="text-blue-700 hover:text-blue-900">{content}, </a> :
+                    <p key={block.id} className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">{content}</p>
+            })}
         </React.Fragment>
     )
 }
