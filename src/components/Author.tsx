@@ -25,7 +25,6 @@ export const Author = async (): Promise<React.JSX.Element> => {
     return (
         <React.Fragment>
             {contents.results.map((block) => {
-                // @ts-ignore
                 const text = block[block.type]['rich_text'][0].text
                 const content = text.content
                 const link = text.link
