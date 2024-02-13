@@ -1,28 +1,23 @@
 'use client'
 
-import React, { useEffect, useState } from "react";
+import Error from "next/error";
+import React from "react";
+import { useWorkExperience } from "@/hooks/useWorkExperience";
 
 export default function Page({ params }: { params: { title: string } }) {
-    const [data, setData] = useState(null)
+    const { workExperience, isLoading, isError } = useWorkExperience(params.title)
 
-    useEffect(() => {
-        const fetchData = async () => {
-            const data = await fetch(`/api/work-experience?title=${encodeURIComponent(params.title)}`)
-            console.log(data)
-            setData(await data.json())
-        }
-        fetchData()
-    }, [params.title])
-
-    if (!data) return <p>Failed to fetch data.</p>
+    if (isLoading) return <p>Loading...</p>
+    if (isError) return <Error statusCode={500} title="Failed to fetch work experience data" />
 
     // TODO: Define the type of data
-    console.log(data)
+    console.log(workExperience)
 
     return (
         <React.Fragment>
             <h1>{params.title}</h1>
             <div>Work In Progress...</div>
+            {workExperience.toString()}
         </React.Fragment>
     )
 }
