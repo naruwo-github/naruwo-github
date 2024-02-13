@@ -36,7 +36,13 @@ export const getWorkExperienceData =
 
     try {
       const contents = await notion.databases.query({
-        database_id: workExperiencePageId
+        database_id: workExperiencePageId,
+        sorts: [
+          {
+            property: 'startedAt',
+            direction: 'descending'
+          }
+        ]
       })
       return contents
     } catch (error) {
