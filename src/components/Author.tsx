@@ -1,12 +1,13 @@
+import Link from 'next/link'
 import React from 'react'
 import { getAuthorData } from '@/lib/cmsClient'
 
 type AuthorLinkProps = {
-    link: { url: string }
+    link: string
     content: string
 }
 const AuthorLink: React.FC<AuthorLinkProps> = ({ link, content }) => (
-    <a href={link.url} target="_blank" rel="noopener noreferrer" className="text-blue-700 hover:text-blue-900">{content}, </a>
+    <Link href={link} target="_blank" rel="noopener noreferrer" className="text-blue-700 hover:text-blue-900">{content}, </Link>
 )
 
 type AuthorParagraphProps = {
