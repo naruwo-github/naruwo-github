@@ -1,6 +1,7 @@
 'use client'
 
 import { useRouter } from 'next/navigation'
+import { memo } from 'react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card'
 
 type WorkExperienceCardProps = {
@@ -9,7 +10,7 @@ type WorkExperienceCardProps = {
     startedAt: string
     endedAt: string
 }
-export const WorkExperienceCard: React.FC<WorkExperienceCardProps> = ({ title, startedAt, endedAt, role }) => {
+export const WorkExperienceCard: React.FC<WorkExperienceCardProps> = memo(({ title, startedAt, endedAt, role }) => {
     const router = useRouter()
 
     return (
@@ -26,4 +27,5 @@ export const WorkExperienceCard: React.FC<WorkExperienceCardProps> = ({ title, s
             <CardContent className='text-gray-500 dark:text-gray-400'>{role}</CardContent>
         </Card>
     )
-}
+})
+WorkExperienceCard.displayName = 'WorkExperienceCard'
