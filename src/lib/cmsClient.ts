@@ -6,13 +6,13 @@ import {
 
 const apiSecret = process.env.NOTION_API_SECRET
 const authorPageId = process.env.NOTION_AUTHOR_PAGE_ID
-const workExperiencePageId = process.env.NOTION_WORK_EXPERIENCE_PAGE_ID
+export const workExperiencePageId = process.env.NOTION_WORK_EXPERIENCE_PAGE_ID
 
-const notion = new Client({
+export const notion = new Client({
   auth: apiSecret
 })
 
-// TODO: Move to /app/api/author
+// TODO: Move to /app/api/author if this is called on the client
 export const getAuthorData =
   async (): Promise<ListBlockChildrenResponse | null> => {
     if (!authorPageId) return null
@@ -29,7 +29,7 @@ export const getAuthorData =
     }
   }
 
-// TODO: Move to /app/api/work-experience
+// TODO: Move to /app/api/work-experience if this is called on the client
 export const getWorkExperienceData =
   async (): Promise<QueryDatabaseResponse | null> => {
     if (!workExperiencePageId) return null

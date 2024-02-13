@@ -2,7 +2,7 @@
 
 ![](https://skillicons.dev/icons?i=aws,gcp,linux,docker,kubernetes,terraform,jenkins,html,css,js,ts,nodejs,nextjs,react,py,flutter,kotlin,swift)
 
-## Please visit [my homepage](https://portfolio-rfu8xc065-naruwo-github.vercel.app/)🚀
+## Please visit [my homepage](https://portfolio-18ihlco3u-naruwo-github.vercel.app/)🚀
 
 <!--
 <img alt="Top Langs" height="150px" src="https://github-readme-stats.vercel.app/api/top-langs/?username=naruwo-github&layout=compact&count_private=true&show_icons=true&theme=tokyonight" />
