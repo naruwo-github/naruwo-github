@@ -1,4 +1,5 @@
 import React from 'react'
+import { WorkExperienceCard } from './WorkExperienceCard'
 import { getWorkExperienceData } from '@/lib/cmsClient'
 
 export const WorkExperience = async (): Promise<React.JSX.Element> => {
@@ -16,13 +17,7 @@ export const WorkExperience = async (): Promise<React.JSX.Element> => {
                     const startedAt = properties.startedAt.date.start
                     const endedAt = properties.endedAt.date?.start ? properties.endedAt.date.start : 'Present'
                     const role = properties.role['rich_text'][0].plain_text
-                    return (
-                        <div key={section} className="flex flex-col space-y-2">
-                            <h3 className="text-xl font-semibold">{section} Inc</h3>
-                            <p className="text-gray-500 dark:text-gray-400">{startedAt} - {endedAt}</p>
-                            <p className="text-gray-500 dark:text-gray-400">{role}</p>
-                        </div>
-                    )
+                    return <WorkExperienceCard key={section} title={section} startedAt={startedAt} endedAt={endedAt} role={role} />
                 })}
             </div>
         </React.Fragment>
