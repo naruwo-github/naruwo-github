@@ -12,26 +12,36 @@ const notion = new Client({
   auth: apiSecret
 })
 
+// TODO: Move to /app/api/author
 export const getAuthorData =
   async (): Promise<ListBlockChildrenResponse | null> => {
-    if (!authorPageId) {
+    if (!authorPageId) return null
+
+    try {
+      const contents = await notion.blocks.children.list({
+        block_id: authorPageId
+      })
+      return contents
+    } catch (error) {
+      // TODO: Introduce a mechanism to collect logs
+      console.error('Failed to fetch author data: ', error)
       return null
     }
-
-    const contents = await notion.blocks.children.list({
-      block_id: authorPageId
-    })
-    return contents
   }
 
+// TODO: Move to /app/api/work-experience
 export const getWorkExperienceData =
   async (): Promise<QueryDatabaseResponse | null> => {
-    if (!workExperiencePageId) {
+    if (!workExperiencePageId) return null
+
+    try {
+      const contents = await notion.databases.query({
+        database_id: workExperiencePageId
+      })
+      return contents
+    } catch (error) {
+      // TODO: Introduce a mechanism to collect logs
+      console.error('Failed to fetch work experience data: ', error)
       return null
     }
-
-    const contents = await notion.databases.query({
-      database_id: workExperiencePageId
-    })
-    return contents
   }

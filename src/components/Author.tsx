@@ -1,19 +1,36 @@
 import React from 'react'
-import { getAuthorData } from '@/lib/cmsClient';
+import { getAuthorData } from '@/lib/cmsClient'
 
-export const Author: React.FC = async () => {
+type AuthorLinkProps = {
+    link: { url: string }
+    content: string
+}
+const AuthorLink: React.FC<AuthorLinkProps> = ({ link, content }) => (
+    <a href={link.url} target="_blank" rel="noopener noreferrer" className="text-blue-700 hover:text-blue-900">{content}, </a>
+)
+
+type AuthorParagraphProps = {
+    content: string
+}
+const AuthorParagraph: React.FC<AuthorParagraphProps> = ({ content }) => (
+    <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">{content}</p>
+)
+
+export const Author = async (): Promise<React.JSX.Element> => {
     const contents = await getAuthorData()
+
+    if (contents === null) return <p>Failed to fetch author data</p>
 
     return (
         <React.Fragment>
-            {contents && contents.results.map((block) => {
+            {contents.results.map((block) => {
                 // @ts-ignore
                 const text = block[block.type]['rich_text'][0].text
                 const content = text.content
                 const link = text.link
                 return link ?
-                    <a key={block.id} href={link.url} target="_blank" rel="noopener noreferrer" className="text-blue-700 hover:text-blue-900">{content}, </a> :
-                    <p key={block.id} className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">{content}</p>
+                    <AuthorLink key={block.id} link={link.url} content={content} /> :
+                    <AuthorParagraph key={block.id} content={content} />
             })}
         </React.Fragment>
     )

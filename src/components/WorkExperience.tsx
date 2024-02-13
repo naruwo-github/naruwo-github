@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const WorkExperience: React.FC = () => {
+export const WorkExperience: React.FC<{}> = () => {
     return (
         <React.Fragment>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
