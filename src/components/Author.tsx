@@ -1,3 +1,4 @@
+import { BlockObjectResponse, ListBlockChildrenResponse, PartialBlockObjectResponse, RichTextItemResponse, TextRichTextItemResponse } from '@notionhq/client/build/src/api-endpoints'
 import Link from 'next/link'
 import React from 'react'
 import { getAuthorData } from '@/lib/cmsClient'
@@ -18,15 +19,26 @@ const AuthorParagraph: React.FC<AuthorParagraphProps> = ({ content }) => (
 )
 
 export const Author = async (): Promise<React.JSX.Element> => {
-    const contents = await getAuthorData()
+    const contents: ListBlockChildrenResponse | null = await getAuthorData()
 
     if (contents === null) return <p>Failed to fetch author data</p>
 
     return (
         <React.Fragment>
-            {contents.results.map((block) => {
-                // TODO: define types
-                const text = block[block.type]['rich_text'][0].text
+            {contents.results.map((block: PartialBlockObjectResponse | BlockObjectResponse) => {
+                const blockObject = block as BlockObjectResponse
+                const type = blockObject.type
+                let rich_text: RichTextItemResponse[]
+                if (type === 'paragraph') {
+                    rich_text = blockObject.paragraph['rich_text']
+                } else if (type === 'bulleted_list_item') {
+                    rich_text = blockObject.bulleted_list_item['rich_text']
+                } else {
+                    // TODO: handle other block types
+                    console.error(`Unknown block type: ${type}`)
+                    return null
+                }
+                const text = (rich_text[0] as TextRichTextItemResponse).text
                 const content = text.content
                 const link = text.link
                 return link ?
