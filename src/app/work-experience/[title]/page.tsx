@@ -10,9 +10,6 @@ export default function Page({ params }: { params: { title: string } }) {
     if (isLoading) return <p>Loading...</p>
     if (isError) return <Error statusCode={500} title="Failed to fetch work experience data" />
 
-    // TODO: Define the type of data
-    console.log(workExperience)
-
     return (
         <React.Fragment>
             <h1>{params.title}</h1>

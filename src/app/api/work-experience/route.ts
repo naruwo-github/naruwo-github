@@ -1,3 +1,7 @@
+import {
+  PageObjectResponse,
+  QueryDatabaseResponse
+} from '@notionhq/client/build/src/api-endpoints'
 import { notion, workExperiencePageId } from '@/lib/cmsClient'
 
 export async function GET(request: Request) {
@@ -7,7 +11,7 @@ export async function GET(request: Request) {
     return new Response('Title parameter is required', { status: 400 })
 
   try {
-    const res = await notion.databases.query({
+    const res: QueryDatabaseResponse = await notion.databases.query({
       database_id: workExperiencePageId!,
       filter: {
         property: 'section',
@@ -17,7 +21,8 @@ export async function GET(request: Request) {
       }
     })
     if (res.results.length > 0) {
-      const properties = await res.results[0].properties
+      const result = res.results[0] as unknown as PageObjectResponse
+      const properties = result.properties
       return Response.json(properties)
     } else {
       return new Response('No matching title found', { status: 404 })
