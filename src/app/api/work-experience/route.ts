@@ -21,7 +21,13 @@ export async function GET(request: Request) {
       }
     })
     if (res.results.length > 0) {
-      const result = res.results[0] as unknown as PageObjectResponse
+      const result = isPageObjectResponse(res.results[0])
+        ? res.results[0]
+        : null
+      if (result === null) {
+        // res.results[0] is not a PageObjectResponse
+        return Response.json({})
+      }
       const properties = result.properties
       return Response.json(properties)
     } else {
@@ -32,4 +38,10 @@ export async function GET(request: Request) {
     console.error(error)
     return new Response('Internal Server Error', { status: 500 })
   }
+}
+
+// Type guard function
+function isPageObjectResponse(obj: any): obj is PageObjectResponse {
+  // Add necessary checks for properties in PageObjectResponse
+  return obj && obj.properties
 }

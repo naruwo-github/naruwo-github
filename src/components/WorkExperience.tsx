@@ -27,7 +27,7 @@ type TitleProperty = {
     type: 'title'
     title: RichText[]
 }
-type YourObject = {
+type PropertiesObject = {
     role: RichTextProperty
     endedAt: DateProperty
     startedAt: DateProperty
@@ -44,10 +44,10 @@ export const WorkExperience = async (): Promise<React.JSX.Element> => {
         <React.Fragment>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {data.results.map((result: PageObjectResponse | PartialPageObjectResponse | PartialDatabaseObjectResponse | DatabaseObjectResponse) => {
-                    const properties = (result as PageObjectResponse | DatabaseObjectResponse).properties as unknown as YourObject
+                    const properties = (result as PageObjectResponse | DatabaseObjectResponse).properties as unknown as PropertiesObject
                     const section = properties.section.title[0].plain_text
-                    const startedAt = properties.startedAt.date?.start ? properties.startedAt.date.start : '-'
-                    const endedAt = properties.endedAt.date?.start ? properties.endedAt.date.start : 'Present'
+                    const startedAt = properties.startedAt.date?.start ?? '-'
+                    const endedAt = properties.endedAt.date?.start ?? 'Present'
                     const role = properties.role['rich_text'][0].plain_text
                     return <WorkExperienceCard key={section} title={section} startedAt={startedAt} endedAt={endedAt} role={role} />
                 })}
