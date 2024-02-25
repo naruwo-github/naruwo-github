@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { URL_GITHUB, URL_LINKEDIN, URL_TWITTER } from "@/constants/identity";
+import Link from "next/link";
 
 const TwitterIcon: React.FC = () => {
 	return (

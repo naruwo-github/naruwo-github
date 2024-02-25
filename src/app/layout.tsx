@@ -1,6 +1,7 @@
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { cn } from "@/lib/utils";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import type { Metadata } from "next";
-import "./globals.css";
 import { Inter as FontSans } from "next/font/google";
 import Link from "next/link";
 import {
@@ -9,8 +10,7 @@ import {
 	DISPLAY_NAME,
 	URL_ROOT,
 } from "../constants/identity";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { cn } from "@/lib/utils";
+import "./globals.css";
 
 const fontSans = FontSans({
 	subsets: ["latin"],
