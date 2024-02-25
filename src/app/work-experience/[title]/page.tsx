@@ -1,8 +1,9 @@
 "use client";
 
-import Error from "next/error";
 import React from "react";
 import { useWorkExperience } from "@/hooks/useWorkExperience";
+// biome-ignore lint/suspicious/noShadowRestrictedNames: Because next provides a global Error component
+import Error from "next/error";
 
 export default function Page({ params }: { params: { title: string } }) {
     const { workExperience, isLoading, isError } = useWorkExperience(

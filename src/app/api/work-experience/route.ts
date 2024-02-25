@@ -45,6 +45,10 @@ export async function GET(request: Request) {
 
 // Type guard function
 function isPageObjectResponse(obj: unknown): obj is PageObjectResponse {
+	if (typeof obj === 'undefined') return false;
+	if (obj === null) return false;
+	if (typeof obj !== 'object') return false;
+
 	// Add necessary checks for properties in PageObjectResponse
-	return obj && obj.properties;
+	return Object.keys(obj).includes('properties');
 }
