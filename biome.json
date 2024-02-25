@@ -1,0 +1,22 @@
+{
+	"$schema": "https://biomejs.dev/schemas/1.5.3/schema.json",
+	"organizeImports": {
+		"enabled": true
+	},
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"recommended": true
+		},
+		"ignore": ["**/.next/**", "**/node_modules/**", "**/dist/**"]
+	},
+	"formatter": {
+		"enabled": true,
+		"ignore": [
+			"**/.next/**",
+			"**/node_modules/**",
+			"**/dist/**",
+			"./src/components/ui/**"
+		]
+	}
+}
