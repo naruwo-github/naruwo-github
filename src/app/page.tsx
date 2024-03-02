@@ -1,8 +1,8 @@
-import React from "react";
-import { MAIL } from "../constants/identity";
 import { Author } from "@/components/Author";
 import { Contact } from "@/components/Contact";
 import { WorkExperience } from "@/components/WorkExperience";
+import React from "react";
+import { MAIL } from "../constants/identity";
 
 type SectionElement = {
 	title: string;

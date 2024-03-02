@@ -1,15 +1,23 @@
-import useSWR from "swr";
-import { fetcher } from "./fetcher";
+import useSWR from 'swr';
+import { fetcher } from './fetcher';
+
+type WorkExperience = {
+	section: Record<string, never>;
+	role: Record<string, never>;
+	description: Record<string, never>;
+	startedAt: Record<string, never>;
+	endedAt: Record<string, never>;
+};
 
 export const useWorkExperience = (title: string) => {
 	const { data, error, isLoading } = useSWR(
 		`/api/work-experience?title=${encodeURIComponent(title)}`,
-		fetcher,
+		fetcher
 	);
 
 	return {
-		workExperience: data,
+		workExperience: data as WorkExperience,
 		isLoading,
-		isError: error,
+		isError: error
 	};
 };

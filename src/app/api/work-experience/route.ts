@@ -1,10 +1,14 @@
+import { notion, workExperiencePageId } from '@/lib/cmsClient';
 import {
 	PageObjectResponse,
 	QueryDatabaseResponse
 } from '@notionhq/client/build/src/api-endpoints';
-import { notion, workExperiencePageId } from '@/lib/cmsClient';
 
 export async function GET(request: Request) {
+	if (!workExperiencePageId) {
+		return new Response('Work experience page id is not set', { status: 500 });
+	}
+
 	const { searchParams } = new URL(request.url);
 	const title = searchParams.get('title');
 	if (!title)
@@ -12,7 +16,7 @@ export async function GET(request: Request) {
 
 	try {
 		const res: QueryDatabaseResponse = await notion.databases.query({
-			database_id: workExperiencePageId!,
+			database_id: workExperiencePageId,
 			filter: {
 				property: 'section',
 				rich_text: {
@@ -30,9 +34,8 @@ export async function GET(request: Request) {
 			}
 			const properties = result.properties;
 			return Response.json(properties);
-		} else {
-			return new Response('No matching title found', { status: 404 });
 		}
+		return new Response('No matching title found', { status: 404 });
 	} catch (error) {
 		// TODO: Introduce a mechanism to collect logs
 		console.error(error);
@@ -41,7 +44,11 @@ export async function GET(request: Request) {
 }
 
 // Type guard function
-function isPageObjectResponse(obj: any): obj is PageObjectResponse {
+function isPageObjectResponse(obj: unknown): obj is PageObjectResponse {
+	if (typeof obj === 'undefined') return false;
+	if (obj === null) return false;
+	if (typeof obj !== 'object') return false;
+
 	// Add necessary checks for properties in PageObjectResponse
-	return obj && obj.properties;
+	return Object.keys(obj).includes('properties');
 }

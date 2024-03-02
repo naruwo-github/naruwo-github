@@ -1,3 +1,4 @@
+import { getWorkExperienceData } from "@/lib/cmsClient";
 import {
 	DatabaseObjectResponse,
 	PageObjectResponse,
@@ -7,7 +8,6 @@ import {
 } from "@notionhq/client/build/src/api-endpoints";
 import React from "react";
 import { WorkExperienceCard } from "./WorkExperienceCard";
-import { getWorkExperienceData } from "@/lib/cmsClient";
 
 type RichText = {
 	plain_text: string;
@@ -63,7 +63,7 @@ export const WorkExperience = async (): Promise<React.JSX.Element> => {
 						const section = properties.section.title[0].plain_text;
 						const startedAt = properties.startedAt.date?.start ?? "-";
 						const endedAt = properties.endedAt.date?.start ?? "Present";
-						const role = properties.role["rich_text"][0].plain_text;
+						const role = properties.role.rich_text[0].plain_text;
 						return (
 							<WorkExperienceCard
 								key={section}
