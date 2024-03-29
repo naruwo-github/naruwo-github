@@ -1,3 +1,4 @@
+import { getAuthorData } from "@/lib/cmsClient";
 import {
 	BlockObjectResponse,
 	ListBlockChildrenResponse,
@@ -7,7 +8,6 @@ import {
 } from "@notionhq/client/build/src/api-endpoints";
 import Link from "next/link";
 import React from "react";
-import { getAuthorData } from "@/lib/cmsClient";
 
 type AuthorLinkProps = {
 	link: string;
@@ -46,9 +46,9 @@ export const Author = async (): Promise<React.JSX.Element> => {
 					const type = blockObject.type;
 					let rich_text: RichTextItemResponse[];
 					if (type === "paragraph") {
-						rich_text = blockObject.paragraph["rich_text"];
+						rich_text = blockObject.paragraph.rich_text;
 					} else if (type === "bulleted_list_item") {
-						rich_text = blockObject.bulleted_list_item["rich_text"];
+						rich_text = blockObject.bulleted_list_item.rich_text;
 					} else {
 						// TODO: handle other block types
 						console.error(`Unknown block type: ${type}`);
