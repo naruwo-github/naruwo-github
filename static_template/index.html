@@ -30,9 +30,11 @@
 				justify-content: center;
 				list-style: none;
 				background-color: #f0f0f0;
+				padding: 1rem 0;
+				flex-wrap: wrap;
 			}
 			nav ul li {
-				margin: 0 15px;
+				margin: 0.5rem 15px;
 			}
 			nav ul li a {
 				color: #333333;
@@ -44,12 +46,12 @@
 			}
 			.hero {
 				text-align: center;
-				padding: 3rem 1rem;
+				padding: 2rem 1rem;
 				background: #e8e8e8;
 				color: #333333;
 			}
 			.hero h1 {
-				font-size: 3rem;
+				font-size: 2.5rem;
 				margin-bottom: 1rem;
 			}
 			.hero p {
@@ -179,6 +181,43 @@
 
 			.social-links a:hover {
 				color: #666;
+			}
+
+			@media (max-width: 768px) {
+				.hero h1 {
+					font-size: 2rem;
+				}
+				
+				.hero h2 {
+					font-size: 1.2rem;
+				}
+				
+				.container {
+					padding: 0 1rem;
+				}
+				
+				.experience-card {
+					padding: 1rem;
+				}
+				
+				.social-links {
+					gap: 1rem;
+					flex-wrap: wrap;
+				}
+			}
+
+			@media (max-width: 480px) {
+				.hero h1 {
+					font-size: 1.8rem;
+				}
+				
+				.about-image {
+					width: 120px;
+				}
+				
+				.blog-cards {
+					grid-template-columns: 1fr;
+				}
 			}
 		</style>
 	</head>
