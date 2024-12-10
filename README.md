@@ -2,7 +2,8 @@
 
 ![](https://skillicons.dev/icons?i=aws,gcp,linux,docker,kubernetes,terraform,jenkins,html,css,js,ts,nodejs,nextjs,react,py,flutter,kotlin,swift)
 
-## Please visit [my homepage](https://portfolio-mcqa-git-main-chan-naru-ways-projects.vercel.app/)🚀
+## Please visit [my homepage](https://channaru.tech/)🚀
+<!-- ## Please visit [my homepage](https://portfolio-mcqa-git-main-chan-naru-ways-projects.vercel.app/)🚀 -->
 
 <!--
 <img alt="Top Langs" height="150px" src="https://github-readme-stats.vercel.app/api/top-langs/?username=naruwo-github&layout=compact&count_private=true&show_icons=true&theme=tokyonight" />
